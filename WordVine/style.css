@@ -1,0 +1,47 @@
+#vine {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    line-height: 2em;
+}
+
+.word {
+    margin: 0 5px;
+    display: inline-block;
+    position: relative;
+}
+
+.word::after {
+    content: '→';
+    position: absolute;
+    right: -15px;
+    top: 0;
+    color: #666;
+}
+
+#vineContainer {
+    width: 420px; /* Adjust based on your preference */
+    height: 420px; /* Adjust based on your preference */
+    overflow: auto; /* Enables scrolling */
+    display: grid;
+    grid-auto-rows: 20px;
+    grid-template-columns: repeat(auto-fill, 20px); /* Adjust the number of columns based on the cell size */
+}
+
+
+.grid-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc; /* Light grey border for the cells */
+}
+
+.grid-cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
