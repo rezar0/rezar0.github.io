@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Zak's portfolio</title>
+</head>
+<body>
+    <div class="menu-banner">
+        <div class="menu-0">Zak Killermann</div>
+        <div class="menu-items">
+            <div class="menu-1"><a href="/portfolio" class="menu-link">Portfolio</a></div>
+            <div class="menu-2">LinkedIn</div>
+            <div class="menu-3">Resume</div>
+            <div class="menu-4">Contact</div>
+        </div>
+        <div class="hamburger-menu">
+            <a class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+          </a>
+        </div>
+    </div>
+    <div class="profile-container">
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'cryptoHTB')" id="defaultOpen">'How to buy' crypto series</button>
+            <button class="tablinks" onclick="openTab(event, 'Paris')">Paris</button>
+            <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
+        </div>
+        
+        <!-- Tab content -->
+        <div id="cryptoHTB" class="tabcontent">
+            <h1>'How to buy' cryto series</h1>
+            <img src="images/htbDoge.png" alt="How to buy Dogecoin example" class="portfolioScreenshot">
+            <h2>Overview</h2>
+            <p>SEO-focused 'how to buy' series featuring the top 1,000 coins in the crypto market rolled out to more than 20 markets infusing EEATs driven content with programmatically data-driven content.</p>
+            <hr/>
+            <div class="profileProblem">
+                <h2>Problem</h2>
+                <div class="side-by-side-2">
+                    <div class="side-by-side-big">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas porttitor lacus id mollis. Nam ut efficitur justo. Mauris venenatis scelerisque massa, eu convallis eros dictum dapibus. Vestibulum scelerisque posuere ligula ullamcorper consectetur. Pellentesque sit amet iaculis orci. Nunc tempus justo id velit semper blandit. Sed rhoncus est mauris, sed tempor urna laoreet vitae. Nunc cursus eros in ullamcorper tristique. Aliquam quis lectus hendrerit, auctor felis eget, varius erat. Ut ac nisl turpis. Maecenas elit mi, fermentum non sapien vel, mollis volutpat magna. Morbi est orci, eleifend nec lacus sit amet, vestibulum luctus purus. Nulla sapien quam, pretium eu efficitur at, ornare at ligula. Sed tristique luctus consequat. Ut pulvinar, justo quis ultricies semper, erat ligula varius lorem, sit amet vestibulum enim lectus pretium turpis. Donec ac odio non dui congue mattis in vel est.</p>
+                    </div>
+                    <div class="side-by-side-small">
+                        <img src="images/cryptoMarketFluctuate.jpg" alt="Crypto markets example" class="side-by-side-image">
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="profileSolution">
+                <h2>Solution</h2>
+                <div class="side-by-side-2">
+                    <div class="side-by-side-small">
+                        <img src="images/cryptoMarketFluctuate.jpg" alt="Crypto markets example" class="side-by-side-image">
+                    </div>
+                    <div class="side-by-side-big">
+                        <p style="padding-left: 1rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas porttitor lacus id mollis. Nam ut efficitur justo. Mauris venenatis scelerisque massa, eu convallis eros dictum dapibus. Vestibulum scelerisque posuere ligula ullamcorper consectetur. Pellentesque sit amet iaculis orci. Nunc tempus justo id velit semper blandit. Sed rhoncus est mauris, sed tempor urna laoreet vitae. Nunc cursus eros in ullamcorper tristique. Aliquam quis lectus hendrerit, auctor felis eget, varius erat. Ut ac nisl turpis. Maecenas elit mi, fermentum non sapien vel, mollis volutpat magna. Morbi est orci, eleifend nec lacus sit amet, vestibulum luctus purus. Nulla sapien quam, pretium eu efficitur at, ornare at ligula. Sed tristique luctus consequat. Ut pulvinar, justo quis ultricies semper, erat ligula varius lorem, sit amet vestibulum enim lectus pretium turpis. Donec ac odio non dui congue mattis in vel est.
+                        <ul>
+                            <li>item one</li>
+                            <li>item two</li>
+                            <li>item three</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="Paris" class="tabcontent">
+            <h3>Paris</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+        
+        <div id="Tokyo" class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
