@@ -90,6 +90,7 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     width: 100%;
+    text-wrap: nowrap;
 }
 
 .menu-1 {
