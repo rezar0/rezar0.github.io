@@ -19,7 +19,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #E7DECD;
     flex-direction: column;
 }
 
@@ -31,7 +31,7 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
     text-align: center;
-    padding: 20px;
+    padding: 0px;
     padding-top: 0px;
     overflow-y: auto;
     margin-top: 4rem;
@@ -260,4 +260,23 @@ div.tab {
     .side-by-side-small {
         flex: 100%;
     }
+}
+
+/* IMAGE SCROLL */
+
+.image-wrap {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+.image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: all 3s ease-in-out;
+}
+.image-wrap:hover img {
+    object-position: bottom center;
 }
