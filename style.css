@@ -82,11 +82,7 @@ body {
     text-wrap: nowrap;
 }
 
-.menu-1 {
-    margin-left: 45%;
-}
-
-.menu-2, .menu-3, .menu-4 {
+.menu-2, .menu-3, .menu-4, .menu-5 {
     margin-left: 20px;
 }
 
@@ -96,7 +92,8 @@ body {
 }
 
 .menu-items {
-    margin-left: 45%;
+    margin-left: auto;
+    margin-right: 20%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
