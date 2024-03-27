@@ -1,29 +1,4 @@
-#typing-effect {
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-    border-right: 2px solid;
-    animation: blinkCursor 0.75s step-end infinite;
-}
-
-@keyframes blinkCursor {
-  from, to { border-color: transparent }
-  50% { border-color: black; }
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #E7DECD;
-    flex-direction: column;
-}
-
-.profile-container {
+.portfolio-container {
     width: 90%;
     max-width: 1200px;
     background-color: #fff;
@@ -44,39 +19,11 @@ body {
     border-width: .5px;
 }
 
-.profile-headshot {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #eee;
-    margin-bottom: 20px;
-}
-
-.profile-menu a {
-    text-decoration: none;
-    color: #333;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-.profile-menu a:hover {
-    color: #007bff;
-}
 
 @media (max-width: 768px) {
     .portfolioScreenshot {
         width: 100%;
         height: 100%;
-    }
-
-    .profile-headshot {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-menu a {
-        display: block;
-        margin: 10px 0;
     }
 }
 
