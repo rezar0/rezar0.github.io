@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random Questions</title>
+</head>
+<body>
+    <div class="slidecontainer">
+        <p><a href="/jparty">Back to menu</a></p>
+    </div>
+
+    <div id="questionDisplay" style="margin-top: 20px;">
+        <!-- Clue and Response will be displayed here -->
+    </div>
+    <button id="nextQuestion" onclick="showRandomQuestion()" style="margin-top: 30px; width: 100%; height: 40px">Next question</button>
+
+    <script src="slider.js"></script>
+    <script>
+        let csvData = []; // To store the parsed CSV data globally
+
+        function showRandomQuestion() {
+            if (csvData.length > 0) {
+                const randomIndex = Math.floor(Math.random() * csvData.length); // Get a random index
+                const question = csvData[randomIndex]; // Get the question at the random index
+                document.getElementById('questionDisplay').innerHTML = `
+                    <div class="clueHolder">
+                        <div class="category">${question.category}</div>
+                        <div class="questionValue">$${question.value}</div>
+                        <div class="clue">${question.clue}</div>
+                        <div class="response-container" onclick="toggleResponse(this)">
+                            <p class="response-placeholder">Answer</p>
+                            <p class="response-hidden" style="display: none">${question.response}</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                alert('No questions available.');
+            }
+        }
+
+        function toggleResponse(element) {
+            const response = element.querySelector('.response-hidden');
+            const placeholder = element.querySelector('.response-placeholder');
+            
+            response.style.display = response.style.display === 'none' ? 'block' : 'none';
+            placeholder.style.display = response.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            const headers = parseCSVLine(lines.shift());
+
+            return lines.map(line => {
+                const values = parseCSVLine(line);
+                return headers.reduce((object, header, index) => {
+                    object[header] = values[index];
+                    return object;
+                }, {});
+            });
+        }
+
+        function parseCSVLine(line) {
+            const values = [];
+            let value = '';
+            let insideQuotes = false;
+            let charIndex = 0;
+
+            while (charIndex < line.length) {
+                let char = line[charIndex];
+
+                if (char === '"') {
+                    if (insideQuotes && line[charIndex + 1] === '"') {
+                        // Escaped quote
+                        value += char;
+                        charIndex++; // Skip the next quote
+                    } else {
+                        insideQuotes = !insideQuotes;
+                    }
+                } else if (char === ',' && !insideQuotes) {
+                    values.push(value.trim());
+                    value = '';
+                } else {
+                    value += char;
+                }
+
+                charIndex++;
+            }
+
+            // Push the last value
+            values.push(value.trim());
+
+            return values;
+        }
+
+        fetch('output.csv')
+            .then(response => response.text())
+            .then(csvText => {
+                csvData = parseCSV(csvText); // Store parsed data globally
+                showRandomQuestion(); // Show the first random question when data is loaded
+            })
+            .catch(error => console.error('Error loading or processing CSV:', error));
+    </script>
+</body>
+</html>

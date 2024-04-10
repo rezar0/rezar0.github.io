@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tiered Questions</title>
+</head>
+<body>       
+    <a class="menuButton" href="/jparty">Back to menu</a>
+    <div class="jButtons">
+        <div class="jButtonInner">
+            <button id="200" onclick="buildQuestionsList('200')" class="jpartyButton">$200</button>
+            <button id="1200" onclick="buildQuestionsList('1200')" class="jpartyButton">$1200</button>
+        </div>
+        <div class="jButtonInner">
+            <button id="400" onclick="buildQuestionsList('400')" class="jpartyButton">$400</button>
+            <button id="1400" onclick="buildQuestionsList('1400')" class="jpartyButton">$1400</button>
+        </div>
+        <div class="jButtonInner">
+            <button id="600" onclick="buildQuestionsList('600')" class="jpartyButton">$600</button>
+            <button id="1600" onclick="buildQuestionsList('1600')" class="jpartyButton">$1600</button>
+        </div>
+        <div class="jButtonInner">
+            <button id="800" onclick="buildQuestionsList('800')" class="jpartyButton">$800</button>
+            <button id="1800" onclick="buildQuestionsList('1800')" class="jpartyButton">$1800</button>
+        </div>
+        <div class="jButtonInner">
+            <button id="1000" onclick="buildQuestionsList('1000')" class="jpartyButton">$1000</button>
+            <button id="2000" onclick="buildQuestionsList('2000')" class="jpartyButton">$2000</button>
+        </div>
+    </div>
+
+    <div id="questionDisplay" style="margin-top: 20px;">
+        <!-- Clue and Response will be displayed here -->
+    </div>
+    <button id="nextQuestion" onclick="showNextQuestion()" style="display:none; margin-top: 30px; width: 100%; height: 40px">Next question</button>
+
+    <script>
+        var questions = {}; // Define questions globally
+        let csvData = []; // To store the parsed CSV data globally
+        var newArray = []; // To store shuffled array globally
+        var currentQuestionIndex = 0; // Track the current question index
+
+        getFrequentCategories();
+
+        function showQuestion(index) {
+            const question = questions[newArray[index]];
+            if (question) {
+                document.getElementById('questionDisplay').innerHTML = `
+                    <div class="clueHolder">
+                        <div class="category">${question.category}</div>
+                        <div class="questionValue">$${question.value}</div>
+                        <div class="clue">${question.clue}</div>
+                        <div class="response-container" onclick="toggleResponse(this)">
+                            <p class="response-placeholder">Answer</p>
+                            <p class="response-hidden" style="display: none">${question.response.replace("\\'", "'").replace("\\'", "'")}</p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('nextQuestion').style.display = ''; // Show the "Next" button
+            }
+        }
+
+        function toggleResponse(element) {
+            const response = element.querySelector('.response-hidden');
+            const placeholder = element.querySelector('.response-placeholder');
+            
+            if (response.style.visibility === 'hidden' || response.style.visibility === '') {
+                response.style.visibility = 'visible';
+                response.style.display = 'block'
+                placeholder.style.display = 'none'; // Hide the placeholder
+            } else {
+                response.style.visibility = 'hidden';
+                response.style.display = 'none'
+                placeholder.style.display = 'block'; // Show the placeholder again (if needed)
+            }
+        }
+
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < newArray.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                alert('No more questions in this category.');
+                document.getElementById('nextQuestion').style.display = 'none'; // Hide the "Next" button
+            }
+        }
+
+        
+
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            const headers = parseCSVLine(lines.shift());
+
+            return lines.map(line => {
+                const values = parseCSVLine(line);
+                return headers.reduce((object, header, index) => {
+                    object[header] = values[index];
+                    return object;
+                }, {});
+            });
+        }
+
+        function parseCSVLine(line) {
+            const values = [];
+            let value = '';
+            let insideQuotes = false;
+            let charIndex = 0;
+
+            while (charIndex < line.length) {
+                let char = line[charIndex];
+
+                if (char === '"') {
+                    if (insideQuotes && line[charIndex + 1] === '"') {
+                        // Escaped quote
+                        value += char;
+                        charIndex++; // Skip the next quote
+                    } else {
+                        insideQuotes = !insideQuotes;
+                    }
+                } else if (char === ',' && !insideQuotes) {
+                    values.push(value.trim());
+                    value = '';
+                } else {
+                    value += char;
+                }
+
+                charIndex++;
+            }
+
+            // Push the last value
+            values.push(value.trim());
+
+            return values;
+        }
+
+        function countCategories(data) {
+            return data.reduce((acc, row) => {
+                const category = row['category'];
+                if (acc[category]) {
+                    acc[category]++;
+                } else {
+                    acc[category] = 1;
+                }
+                return acc;
+            }, {});
+        }
+
+        function getFrequentCategories() {
+            //const minHits = parseInt(document.getElementById('minHits').value, 10);
+            fetch('output.csv')
+                .then(response => response.text())
+                .then(csvText => {
+                    csvData = parseCSV(csvText); // Store parsed data globally
+                    //const categoryCounts = countCategories(csvData);
+                    //const frequentCategories = Object.entries(categoryCounts)
+                        //.filter(([category, count]) => count >= minHits && count <= minHits * 5)
+                        //.sort((a, b) => a[0].localeCompare(b[0]));
+                })
+                .catch(error => console.error('Error loading or processing CSV:', error));
+        }
+
+        function displayResults(frequentCategories) {
+            const dropdown = document.getElementById('categoryDropdown');
+            dropdown.innerHTML = ''; // Clear previous options
+            if (frequentCategories.length > 0) {
+                dropdown.style.display = ''; // Show dropdown
+                frequentCategories.forEach(([category, count]) => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = `${category} (${count})`;
+                    dropdown.appendChild(option);
+                });
+            } else {
+                dropdown.style.display = 'none'; // Hide dropdown if no categories meet the criteria
+                alert('No categories found with more than the specified hits.');
+            }
+        }
+
+        function buildQuestionsList(selectedCategory) {
+            questions = {}; // Reset questions object
+            currentQuestionIndex = 0; // Reset current question index
+            let key = 1; // Start the key numbering at 1
+            console.log(selectedCategory)
+            csvData.filter(row => row['value'] === selectedCategory)
+                .forEach(row => {
+                    questions[key++] = { // Use the key and then increment it for the next iteration
+                        value: row['value'],
+                        category: row['category'],
+                        clue: row['clue'],
+                        response: row['response']
+                    };
+                });
+
+            objectLength = Object.keys(questions).length;
+            newArray = Array.from({length: objectLength}, (_, i) => i + 1);
+            console.log(newArray)
+        
+            shuffleArray(newArray);
+
+            showQuestion(0); // Show the first question
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Category Questions</title>
+</head>
+<body>
+    <label for="minHits"><b>Minimum number of questions to include in category*:</b></label>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="500" value="250" class="slider" id="minHits">
+        <p style="font-size: 70%; text-align: center;">*Categories with more questions are categories that have been in more episodes</p>
+        <p style="display: flex;">Value: <span id="demo" style="font-weight: bold"></span> <button onclick="getFrequentCategories()" style="width: 100px; margin-left: 10px">Submit</button><button onclick="randomCategory()" style="width: 100px; margin-left: 10px">Random</button><a class="menuButton" href="/jparty">Back</a></p>
+      </div>
+
+    <select id="categoryDropdown" class="categoryDropdown" onchange="buildQuestionsList(this.value)" style="display:none;"></select>
+
+    <div id="questionDisplay" style="margin-top: 20px;">
+        <!-- Clue and Response will be displayed here -->
+    </div>
+    <button id="nextQuestion" onclick="showNextQuestion()" style="display:none; margin-top: 30px; width: 100%; height: 40px">Next question</button>
+
+    <script src="slider.js"></script>
+    <script>
+        var questions = {}; // Define questions globally
+        let csvData = []; // To store the parsed CSV data globally
+        var newArray = []; // To store shuffled array globally
+        var currentQuestionIndex = 0; // Track the current question index
+
+        getFrequentCategories();
+
+        function showQuestion(index) {
+            const question = questions[newArray[index]];
+            if (question) {
+                document.getElementById('questionDisplay').innerHTML = `
+                    <div class="clueHolder">
+                        <div class="category">${question.category}</div>
+                        <div class="questionValue">$${question.value}</div>
+                        <div class="clue">${question.clue}</div>
+                        <div class="response-container" onclick="toggleResponse(this)">
+                            <p class="response-placeholder">Answer</p>
+                            <p class="response-hidden" style="display: none">${question.response.replace("\\'", "'").replace("\\'", "'")}</p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('nextQuestion').style.display = ''; // Show the "Next" button
+            }
+        }
+
+        function toggleResponse(element) {
+            const response = element.querySelector('.response-hidden');
+            const placeholder = element.querySelector('.response-placeholder');
+            
+            if (response.style.visibility === 'hidden' || response.style.visibility === '') {
+                response.style.visibility = 'visible';
+                response.style.display = 'block'
+                placeholder.style.display = 'none'; // Hide the placeholder
+            } else {
+                response.style.visibility = 'hidden';
+                response.style.display = 'none'
+                placeholder.style.display = 'block'; // Show the placeholder again (if needed)
+            }
+        }
+
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < newArray.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                alert('No more questions in this category.');
+                document.getElementById('nextQuestion').style.display = 'none'; // Hide the "Next" button
+            }
+        }
+
+        
+
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            const headers = parseCSVLine(lines.shift());
+
+            return lines.map(line => {
+                const values = parseCSVLine(line);
+                return headers.reduce((object, header, index) => {
+                    object[header] = values[index];
+                    return object;
+                }, {});
+            });
+        }
+
+        function parseCSVLine(line) {
+            const values = [];
+            let value = '';
+            let insideQuotes = false;
+            let charIndex = 0;
+
+            while (charIndex < line.length) {
+                let char = line[charIndex];
+
+                if (char === '"') {
+                    if (insideQuotes && line[charIndex + 1] === '"') {
+                        // Escaped quote
+                        value += char;
+                        charIndex++; // Skip the next quote
+                    } else {
+                        insideQuotes = !insideQuotes;
+                    }
+                } else if (char === ',' && !insideQuotes) {
+                    values.push(value.trim());
+                    value = '';
+                } else {
+                    value += char;
+                }
+
+                charIndex++;
+            }
+
+            // Push the last value
+            values.push(value.trim());
+
+            return values;
+        }
+
+        function countCategories(data) {
+            return data.reduce((acc, row) => {
+                const category = row['category'];
+                if (acc[category]) {
+                    acc[category]++;
+                } else {
+                    acc[category] = 1;
+                }
+                return acc;
+            }, {});
+        }
+
+        function getFrequentCategories() {
+            const minHits = parseInt(document.getElementById('minHits').value, 10);
+            fetch('output.csv')
+                .then(response => response.text())
+                .then(csvText => {
+                    csvData = parseCSV(csvText); // Store parsed data globally
+                    const categoryCounts = countCategories(csvData);
+                    const frequentCategories = Object.entries(categoryCounts)
+                        .filter(([category, count]) => count >= minHits && count <= minHits * 5)
+                        .sort((a, b) => a[0].localeCompare(b[0]));
+
+                    displayResults(frequentCategories);
+                })
+                .catch(error => console.error('Error loading or processing CSV:', error));
+        }
+
+        function displayResults(frequentCategories) {
+            const dropdown = document.getElementById('categoryDropdown');
+            dropdown.innerHTML = ''; // Clear previous options
+            if (frequentCategories.length > 0) {
+                dropdown.style.display = ''; // Show dropdown
+                frequentCategories.forEach(([category, count]) => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = `${category} (${count})`;
+                    dropdown.appendChild(option);
+                });
+            } else {
+                dropdown.style.display = 'none'; // Hide dropdown if no categories meet the criteria
+                alert('No categories found with more than the specified hits.');
+            }
+        }
+
+        function randomCategory() {
+            if (csvData.length === 0) {
+                alert('No data loaded from CSV.');
+                return;
+            }
+
+            // Get a list of unique categories from the csvData
+            const uniqueCategories = [...new Set(csvData.map(row => row['category']))];
+            // Select a random category
+            const randomCategory = uniqueCategories[Math.floor(Math.random() * uniqueCategories.length)];
+
+            // Filter questions for the selected category
+            const categoryQuestions = csvData.filter(row => row['category'] === randomCategory);
+
+            // Reset the global questions object and index
+            questions = {};
+            currentQuestionIndex = 0;
+            // Populate the global questions object with the filtered questions
+            categoryQuestions.forEach((row, index) => {
+                questions[index + 1] = { // Start indexing at 1 for consistency
+                    value: row['value'],
+                    category: row['category'],
+                    clue: row['clue'],
+                    response: row['response']
+                };
+            });
+
+            // Prepare newArray for sequential access to the questions in the selected category
+            objectLength = Object.keys(questions).length;
+            newArray = Array.from({length: objectLength}, (_, i) => i + 1);
+
+            // Show the first question
+            showQuestion(0);
+        }
+
+
+        function buildQuestionsList(selectedCategory) {
+            questions = {}; // Reset questions object
+            currentQuestionIndex = 0; // Reset current question index
+
+            let key = 1; // Start the key numbering at 1
+
+            csvData.filter(row => row['category'] === selectedCategory)
+                .forEach(row => {
+                    questions[key++] = { // Use the key and then increment it for the next iteration
+                        value: row['value'],
+                        category: row['category'],
+                        clue: row['clue'],
+                        response: row['response']
+                    };
+                });
+
+            objectLength = Object.keys(questions).length;
+            newArray = Array.from({length: objectLength}, (_, i) => i + 1);
+            shuffleArray(newArray);
+
+            showQuestion(0); // Show the first question
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    </script>
+</body>
+</html>
