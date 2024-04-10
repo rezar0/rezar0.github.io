@@ -69,8 +69,9 @@
                 currentQuestionIndex++;
                 showQuestion(currentQuestionIndex);
             } else {
-                alert('No more questions in this category.');
-                document.getElementById('nextQuestion').style.display = 'none'; // Hide the "Next" button
+                alert('No more questions in this category. Picking new random category...');
+                randomCategory();
+                //document.getElementById('nextQuestion').style.display = 'none'; // Hide the "Next" button
             }
         }
 
