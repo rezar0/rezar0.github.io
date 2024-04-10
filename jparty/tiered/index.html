@@ -200,9 +200,7 @@
                 });
 
             objectLength = Object.keys(questions).length;
-            newArray = Array.from({length: objectLength}, (_, i) => i + 1);
-            console.log(newArray)
-        
+            newArray = Array.from({length: objectLength}, (_, i) => i + 1);        
             shuffleArray(newArray);
 
             showQuestion(0); // Show the first question
