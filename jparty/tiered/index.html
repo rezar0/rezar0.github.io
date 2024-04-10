@@ -156,6 +156,8 @@
                 .then(response => response.text())
                 .then(csvText => {
                     csvData = parseCSV(csvText); // Store parsed data globally
+                    document.getElementById('loadingSpinner').style.display = 'none'; // Hide the spinner
+
                     //const categoryCounts = countCategories(csvData);
                     //const frequentCategories = Object.entries(categoryCounts)
                         //.filter(([category, count]) => count >= minHits && count <= minHits * 5)
@@ -202,7 +204,6 @@
             console.log(newArray)
         
             shuffleArray(newArray);
-            document.getElementById('loadingSpinner').style.display = 'none'; // Hide the spinner
 
             showQuestion(0); // Show the first question
         }
