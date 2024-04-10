@@ -10,6 +10,7 @@
     <div class="slidecontainer">
         <p><a href="/jparty">Back to menu</a></p>
     </div>
+    <div id="loadingSpinner" class="spinner"></div>
 
     <div id="questionDisplay" style="margin-top: 20px;">
         <!-- Clue and Response will be displayed here -->
@@ -21,6 +22,8 @@
         let csvData = []; // To store the parsed CSV data globally
 
         function showRandomQuestion() {
+            document.getElementById('loadingSpinner').style.display = 'none'; // Hide the spinner
+
             if (csvData.length > 0) {
                 const randomIndex = Math.floor(Math.random() * csvData.length); // Get a random index
                 const question = csvData[randomIndex]; // Get the question at the random index

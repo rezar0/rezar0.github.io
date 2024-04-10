@@ -34,6 +34,8 @@
     <div id="questionDisplay" style="margin-top: 20px;">
         <!-- Clue and Response will be displayed here -->
     </div>
+    <div id="loadingSpinner" class="spinner"></div>
+
     <button id="nextQuestion" onclick="showNextQuestion()" style="display:none; margin-top: 30px; width: 100%; height: 40px">Next question</button>
 
     <script>
@@ -200,6 +202,7 @@
             console.log(newArray)
         
             shuffleArray(newArray);
+            document.getElementById('loadingSpinner').style.display = 'none'; // Hide the spinner
 
             showQuestion(0); // Show the first question
         }
