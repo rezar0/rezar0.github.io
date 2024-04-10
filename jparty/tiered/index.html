@@ -10,24 +10,24 @@
     <a class="menuButton" href="/jparty">Back to menu</a>
     <div class="jButtons">
         <div class="jButtonInner">
-            <button id="200" onclick="buildQuestionsList('200')" class="jpartyButton">$200</button>
-            <button id="1200" onclick="buildQuestionsList('1200')" class="jpartyButton">$1200</button>
+            <button id="J!.200" onclick="buildQuestionsList('J!.200')" class="jpartyButton">$200</button>
+            <button id="DJ!.400" onclick="buildQuestionsList('DJ!.400')" class="jpartyButton">$400</button>
         </div>
         <div class="jButtonInner">
-            <button id="400" onclick="buildQuestionsList('400')" class="jpartyButton">$400</button>
-            <button id="1400" onclick="buildQuestionsList('1400')" class="jpartyButton">$1400</button>
+            <button id="J!.400" onclick="buildQuestionsList('J!.400')" class="jpartyButton">$400</button>
+            <button id="DJ!.800" onclick="buildQuestionsList('DJ!.800')" class="jpartyButton">$800</button>
         </div>
         <div class="jButtonInner">
-            <button id="600" onclick="buildQuestionsList('600')" class="jpartyButton">$600</button>
-            <button id="1600" onclick="buildQuestionsList('1600')" class="jpartyButton">$1600</button>
+            <button id="J!.600" onclick="buildQuestionsList('J!.600')" class="jpartyButton">$600</button>
+            <button id="DJ!.1200" onclick="buildQuestionsList('DJ!.1200')" class="jpartyButton">$1200</button>
         </div>
         <div class="jButtonInner">
-            <button id="800" onclick="buildQuestionsList('800')" class="jpartyButton">$800</button>
-            <button id="1800" onclick="buildQuestionsList('1800')" class="jpartyButton">$1800</button>
+            <button id="J!.800" onclick="buildQuestionsList('J!.800')" class="jpartyButton">$800</button>
+            <button id="DJ!.1600" onclick="buildQuestionsList('DJ!.1600')" class="jpartyButton">$1600</button>
         </div>
         <div class="jButtonInner">
-            <button id="1000" onclick="buildQuestionsList('1000')" class="jpartyButton">$1000</button>
-            <button id="2000" onclick="buildQuestionsList('2000')" class="jpartyButton">$2000</button>
+            <button id="J!.1000" onclick="buildQuestionsList('J!.1000')" class="jpartyButton">$1000</button>
+            <button id="DJ!.2000" onclick="buildQuestionsList('DJ!.2000')" class="jpartyButton">$2000</button>
         </div>
     </div>
 
@@ -183,8 +183,9 @@
             questions = {}; // Reset questions object
             currentQuestionIndex = 0; // Reset current question index
             let key = 1; // Start the key numbering at 1
-            console.log(selectedCategory)
-            csvData.filter(row => row['value'] === selectedCategory)
+            var amount = selectedCategory.split('.')[1];
+            var round = selectedCategory.split('.')[0];
+            csvData.filter(row => row['value'] === amount && row['round'] === round)
                 .forEach(row => {
                     questions[key++] = { // Use the key and then increment it for the next iteration
                         value: row['value'],
