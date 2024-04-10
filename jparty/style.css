@@ -1,0 +1,58 @@
+.response-container {
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #0000af;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 125%;
+}
+
+.response-hidden {
+    visibility: hidden;
+}
+
+.response-container:hover .response-hidden,
+.response-container:focus .response-hidden {
+    visibility: visible;
+}
+
+.category {
+    background-color: #0000af;
+    color: white;
+    font-size: 125%;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.questionValue {
+    color: #fab85b;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    background-color: #0000af;
+    padding-top: 10px;
+}
+
+.clue {
+    background-color: #0000af;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    max-width: 100%;
+    padding-right: 30%;
+    padding-left: 30%;
+    text-wrap: balance;
+    font-size: 125%;
+    min-height: 100px;
+}
+
+@media (max-width: 768px) {
+    .clue {
+        min-height: 250px;
+    }
+}
