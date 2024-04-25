@@ -134,7 +134,7 @@ body, html {
         right: auto;
         left: 5rem;
         width: 200px;
-        animation: swipe 4s;
+        animation: swipe 8s;
         animation-iteration-count: infinite;
     }
     
