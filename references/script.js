@@ -150,12 +150,11 @@ function rotateVersion() {
     nextVersion.classList.add('visible');
 }
 
-setInterval(rotateVersion, 1000); // Rotate every 6 seconds to give more time for reading
+setInterval(rotateVersion, 1000);
 }
 
 function initializeRotation(versions) {
     const container = document.getElementById('text-container');
-  
     versions.forEach((version, index) => {
       const div = document.createElement('div');
       div.innerHTML = highlightQuotes(version);  // Process text to highlight quotes
@@ -166,28 +165,27 @@ function initializeRotation(versions) {
   
     let currentVersionIndex = 0;
     let versionElements = document.querySelectorAll(".version");
+
   
     function rotateVersion() {
-      let currentVersion = versionElements[currentVersionIndex];
-      currentVersion.classList.remove('visible');
-  
-      currentVersionIndex = (currentVersionIndex + 1) % versionElements.length;
-      let nextVersion = versionElements[currentVersionIndex];
-      nextVersion.classList.add('visible');
+        let currentVersion = versionElements[currentVersionIndex];
+        currentVersion.classList.remove('visible');
+    
+        currentVersionIndex = (currentVersionIndex + 1) % versionElements.length;
+        let nextVersion = versionElements[currentVersionIndex];
+        nextVersion.classList.add('visible');
     }
   
-    setInterval(rotateVersion, 10000);
+    setInterval(rotateVersion, 3000);
   }
   
   function highlightQuotes(text) {
     return text.replace(/'([^']*)'/g, "<span class='highlight'>$1</span>");
   }
   
-  
 
-  // MAKES SWIPE IMAGE VANISH
-
-  document.getElementById('swipeImage').addEventListener('touchstart', function() {
+// MAKES SWIPE IMAGE VANISH
+document.getElementById('swipeImage').addEventListener('touchstart', function() {
     this.style.opacity = '0';
-    setTimeout(() => { this.remove(); }, 500); // This line ensures the image is removed from the DOM after the transition completes
+    setTimeout(() => { this.remove(); }, 500);
 });

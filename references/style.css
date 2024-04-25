@@ -89,8 +89,9 @@ body, html {
 
 .text {
     position: relative;
-    min-height: 150px;
+    min-height: 220px;
     text-align: justify;
+    transition: height 1s ease;
 }
 
 .version {
@@ -118,11 +119,11 @@ body, html {
 @media (max-width: 768px) {
     .rotating-text {
         font-size: 15px;
-        min-height: 200px !important;
+       /*  min-height: 200px !important; */
     }
-    .text {
+    /*.text {
         min-height: 210px !important;
-    }
+    }*/
 }
   
 
@@ -136,6 +137,8 @@ body, html {
         width: 200px;
         animation: swipe 8s;
         animation-iteration-count: infinite;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+
     }
     
     @keyframes swipe {
@@ -153,10 +156,11 @@ body, html {
     }
 }
 @media (min-width: 769px) {
-.swipeImage {
-    display: none;
+    .swipeImage {
+        display: none;
+    }
 }
-}
+
 
 
 
