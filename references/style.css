@@ -1,0 +1,130 @@
+/* styles.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    overflow-y: auto !important;
+    max-width: 1000px !important;
+}
+
+.slideshow-container {
+    transition: height 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    background: #f1f1f1;
+    margin: auto;
+    border-style: solid;
+    border-color: #484a47;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /*overflow: hidden;*/
+}
+
+.testimonial {
+    min-width: 100%;  /* Ensures each testimonial takes up full width of the container */
+    padding: 10px;
+    padding-top: 0px;
+    text-align: center;
+    background: white;
+    box-sizing: border-box;
+    transition: height 0.5s ease;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 20px;
+    margin-top: -10%;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.next {
+    right: -23px;
+}
+
+.prev {
+    left: -23px;
+}
+
+.prev:hover, .next:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .slideshow-container {
+        width: 95%;
+        max-width: 100%;
+    }
+    .prev, .next {
+        display: none;
+    }
+}
+
+/* Rotating Paragraphs */
+.rotating-text {
+    font-family: Lato, sans-serif;
+    font-weight: 600;
+    font-size: 20px; 
+    color: rgb(0, 0, 0);
+    text-align: center;  
+    padding: 20px;
+}
+
+.text {
+    position: relative;
+    min-height: 150px;
+    text-align: justify;
+}
+
+.version {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    transform-origin: top center;
+}
+
+.version.visible {
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+.highlight {
+    background-color: #b892ff;
+    font-weight: bold;
+    padding: 0 4px;
+    border-radius: 2px;
+}
+  
+@media (max-width: 768px) {
+    .rotating-text {
+        font-size: 15px;
+        min-height: 200px !important;
+    }
+    .text {
+        min-height: 210px !important;
+    }
+}
+  
+  
+
+
+
