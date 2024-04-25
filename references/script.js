@@ -63,7 +63,7 @@ function startAutoChange() {
     }
     autoChangeTimer = setInterval(() => {
         changeTestimonial(1);
-    }, 15000);
+    }, 12000);
 }
 
 function userInteracted() {
@@ -176,7 +176,7 @@ function initializeRotation(versions) {
         nextVersion.classList.add('visible');
     }
   
-    setInterval(rotateVersion, 3000);
+    setInterval(rotateVersion, 15000);
   }
   
   function highlightQuotes(text) {
