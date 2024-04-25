@@ -67,7 +67,7 @@ body, html {
     color: black;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .slideshow-container {
         width: 95%;
         max-width: 100%;
@@ -89,7 +89,7 @@ body, html {
 
 .text {
     position: relative;
-    min-height: 220px;
+    min-height: 175px;
     text-align: justify;
     transition: height 1s ease;
 }
@@ -116,19 +116,19 @@ body, html {
     border-radius: 2px;
 }
   
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .rotating-text {
         font-size: 15px;
        /*  min-height: 200px !important; */
     }
-    /*.text {
-        min-height: 210px !important;
-    }*/
+    .text {
+        min-height: 220px !important;
+    }
 }
   
 
 /* SWIPE IMAGE */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .swipeImage {
         position: absolute;
         z-index: 1;
@@ -155,7 +155,7 @@ body, html {
         100% { transform: translateX(0px) rotate(0deg); }
     }
 }
-@media (min-width: 769px) {
+@media (min-width: 601px) {
     .swipeImage {
         display: none;
     }
