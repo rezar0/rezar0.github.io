@@ -1,4 +1,12 @@
 {
+    "AT": {
+        "fullName": "Adrian Tomkins",
+        "url": "https://www.linkedin.com/in/adriantomkins/",
+        "img": "adrian.jpg",
+        "title": "Group Product Manager",
+        "company": "Finder.com",
+        "text": "Zak is an incredible executer. As his manager, I could always rely on him to handle projects end to end. From stakeholder management to defining technical solutions (and often implementing them in code himself), to working with various teams to roll them out, Zak can do it all. One such notable callout was when we were consolidating our country websites. We were required to present users from different geographic locations alternate product offerings. Not only did he define the approach, he built it and, working with the wider team, implemented it out across thousands of pages. Zak is absolutely the person you can provide a problem to, and he will deliver a well thought-out solution, on-time and without the need for oversight."
+    },
     "MWB": {
         "fullName": "Molly Wiltshire-Bridle",
         "url": "https://www.linkedin.com/in/molly-wiltshire-bridle/",
@@ -14,14 +22,6 @@
         "title": "Data/Technology Innovation Manager (Global)",
         "company": "Finder.com",
         "text": "I have had the distinct pleasure of working with Zak for the past three years. He is a standout digital product all-rounder emerging as a formidable web engineer and has consistently demonstrated excellence and dedication in his work.<br /><br />Zak's foray into the web engineering world has been impressive, with him working with our Engineering team. During his time, he has evolved into a formidable JavaScript engineer, mainly focusing on excellent front-end solutions, but he has also started to break into back-end work. Should he pursue a full-time Engineering path, I think he has an incredibly bright future with it.<br /><br />Zak's unique ability to act as a bridge between operations, product, and engineering teams sets him apart. He's effectively managed numerous complex technical projects and has been a tremendous technical product lead. His proactive communication style and knack for translating technical details into actionable insights significantly contributed to the overall success of our initiatives.<br /><br />Zak's inquisitive nature is one of his standout qualities. Always seeking ways to improve processes and maximize opportunities, Zak approaches challenges with a creative and solution-oriented mindset. His determination to squeeze every bit of potential from a task or project has been inspiring to witness and has undoubtedly elevated the overall performance of our team.<br /><br />Working with Zak has been a pleasure in every sense. His friendly and clear-headed approach to problem-solving creates a positive and collaborative atmosphere. He's a joy to work with.<br /><br />I believe Zak would make a fantastic, no-brainer addition to any digital product team, and I would wholeheartedly love the opportunity to work with him again."
-    },
-    "AT": {
-        "fullName": "Adrian Tomkins",
-        "url": "https://www.linkedin.com/in/adriantomkins/",
-        "img": "adrian.jpg",
-        "title": "Group Product Manager",
-        "company": "Finder.com",
-        "text": "Zak is an incredible executer. As his manager, I could always rely on him to handle projects end to end. From stakeholder management to defining technical solutions (and often implementing them in code himself), to working with various teams to roll them out, Zak can do it all. One such notable callout was when we were consolidating our country websites. We were required to present users from different geographic locations alternate product offerings. Not only did he define the approach, he built it and, working with the wider team, implemented it out across thousands of pages. Zak is absolutely the person you can provide a problem to, and he will deliver a well thought-out solution, on-time and without the need for oversight."
     },
     "RL": {
         "fullName": "Richard Laycock",

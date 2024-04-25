@@ -33,6 +33,7 @@ function createTestimonialElement(testimonial, index) {
         <h4>${testimonial.fullName}<br/><a href="${testimonial.url}" target="_blank">${testimonial.title}</a><br/>${testimonial.company}</h4></div>
     `;
     wrapper.appendChild(div);
+    changeTestimonialHeight(0);
 }
 
 function changeTestimonialHeight(n) {
@@ -62,7 +63,7 @@ function startAutoChange() {
     }
     autoChangeTimer = setInterval(() => {
         changeTestimonial(1);
-    }, 5000);
+    }, 15000);
 }
 
 function userInteracted() {
@@ -175,7 +176,7 @@ function initializeRotation(versions) {
       nextVersion.classList.add('visible');
     }
   
-    setInterval(rotateVersion, 7000);
+    setInterval(rotateVersion, 10000);
   }
   
   function highlightQuotes(text) {
@@ -183,3 +184,10 @@ function initializeRotation(versions) {
   }
   
   
+
+  // MAKES SWIPE IMAGE VANISH
+
+  document.getElementById('swipeImage').addEventListener('touchstart', function() {
+    this.style.opacity = '0';
+    setTimeout(() => { this.remove(); }, 500); // This line ensures the image is removed from the DOM after the transition completes
+});
