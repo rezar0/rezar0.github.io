@@ -152,8 +152,10 @@ body, html {
         100% { transform: translateX(0px) rotate(0deg); }
     }
 }
+@media (min-width: 769px) {
 .swipeImage {
     display: none;
+}
 }
 
 
