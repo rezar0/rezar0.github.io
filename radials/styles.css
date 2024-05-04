@@ -31,8 +31,8 @@ body, html {
 
 .radial-menu div {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 14%;
+    height: 14%;
     background-color: #4CAF50;
     border-radius: 50%;
     color: white;

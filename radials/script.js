@@ -14,7 +14,7 @@ function fetchJson(jsonData, jsonReference) {
 };
 
 fetchJson(spellData, 'spellData.json');
-fetchJson(actions, 'conditions.json');
+fetchJson(actions, 'spellData.json');
 
 
 
@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cover = document.createElement('div');
     cover.className = 'cover';
     document.body.appendChild(cover);
-    const radius = 230; // Radius of the circle
+    const screenWidth = window.screen.width;
+    const radius = Math.min(screenWidth / 2.7, 230); // Radius of the circle
     const itemCount = Object.keys(actions).length;
     let isMenuVisible = false;
     let lastTouchEndTime = 0; // To store the timestamp of the last touch event
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let currentPage = 0;
-    const itemsPerPage = 10;
+    const itemsPerPage = 9;
     
     function populateMenu() {
         menu.innerHTML = ''; // Clear any existing items
@@ -58,16 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
         paginatedItems.forEach((action, index) => {
             const angle = (360 / itemsPerPage) * index - 90; // Adjust angle for fewer items
             const radians = (angle * Math.PI) / 180;
-            const x = Math.cos(radians) * radius - 30;
-            const y = Math.sin(radians) * radius - 30;
+            const x = Math.cos(radians) * radius - 20;
+            const y = Math.sin(radians) * radius - 20;
     
             const item = document.createElement('div');
             item.id = `radialId${start + index}`; // Adjust ID to be unique across pages
             item.textContent = action.Name;
             item.style.backgroundColor = '#4CAF50';
             item.style.transform = `translate(${x}px, ${y}px) scale(2.2)`;
-            item.style.fontSize = `10px`;
+    
+            // Calculate font size based on text length, setting it in pixels
+            const textLength = item.textContent.length;
+            console.log(textLength)
+            const baseSize = 14; // Base size in pixels
+            const reductionFactor = 0.6; // Reduction factor per character
+            const minSize = 7; // Minimum font size in pixels
+            let fontSize = Math.max(minSize, baseSize - reductionFactor * textLength);
+            item.style.fontSize = `${fontSize}px`;
+            item.style.textAlign = `center`;
             item.style.overflowWrap = `anywhere`;
+            item.style.padding = `1px`;
             item.className = `highlight-on-hover`;
             item.addEventListener('mouseup', (e) => handleSelect(e, action)); // Pass the action object to the handler
             item.addEventListener('touchend', (e) => handleSelect(e, action));
@@ -76,9 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
             menu.appendChild(item);
         });
-
+    
         updateNavigationControls();
     }
+    
+    
     
     function updateNavigationControls() {
         // Check if navigation controls exist, if not, create them
