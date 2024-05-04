@@ -1,0 +1,52 @@
+[
+    {
+        "Name": "Attack",
+        "Description": "The most common action to take in combat is the Attack action, whether you are swinging a sword, firing an arrow from a bow, or brawling with your fists.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Cast a Spell",
+        "Description": "Each spell has a casting time, which specifies whether the caster must use an action, a reaction, minutes, or even hours to cast the spell.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Dash",
+        "Description": "Doubles your total movement.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Disengage",
+        "Description": "Your movement doesn't provoke opportunity attacks for the rest of the turn.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Dodge",
+        "Description": "Until the start of your next turn, any attack roll made against you has disadvantage if you can see the attacker.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Help",
+        "Description": "You can lend your aid to another creature in the completion of a task.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Hide",
+        "Description": "You make a stealth check in an attempt to hide.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Ready",
+        "Description": "You can prepare an action and trigger it with a perceived stimulus.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Search",
+        "Description": "You devote your attention to finding something.",
+        "Clickthrough": false
+    },
+    {
+        "Name": "Use Object",
+        "Description": "You interact with an object as your action.",
+        "Clickthrough": false
+    }
+]

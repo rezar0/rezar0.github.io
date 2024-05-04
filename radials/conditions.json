@@ -1,0 +1,77 @@
+[
+    {
+        "Name": "Blinded",
+        "Description": "A blinded creature can't see and automatically fails any ability check that requires sight. Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Charmed",
+        "Description": "A charmed creature can't attack the charmer or target the charmer with harmful abilities or magical effects. The charmer has advantage on any ability check to interact socially with the creature.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Deafened",
+        "Description": "A deafened creature can't hear and automatically fails any ability check that requires hearing.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Exhaustion",
+        "Description": "Exhaustion is measured in six levels, from having disadvantage on ability checks to death at the sixth level. Effects can increase exhaustion, which cumulative affects worsen.\n\n1 - Disadvantage on ability checks\n2 - Speed halved\n3 - Disadvantage on attack rolls and saving throws\n4 - Hit point maximum halved\n5 - Speed reduced to 0\n6 - Death",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Frightened",
+        "Description": "A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight. The creature can't willingly move closer to the source of its fear.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Grappled",
+        "Description": "A grappled creature's speed becomes 0, and it can't benefit from any bonus to its speed. The condition ends if the grappler is incapacitated or if the grappled creature is removed from the grappler's reach.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Incapacitated",
+        "Description": "An incapacitated creature can't take actions or reactions.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Invisible",
+        "Description": "An invisible creature is impossible to see without the aid of magic or a special sense. Attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Paralyzed",
+        "Description": "A paralyzed creature is incapacitated and can't move or speak. It automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage, and hits are critical hits if the attacker is within 5 feet.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Petrified",
+        "Description": "A petrified creature is transformed into stone and is incapacitated. It ceases aging and gains resistance to all damage and all attack rolls against it have advantage. It is immune to poison and disease, although these are not neutralized but suspended.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Poisoned",
+        "Description": "A poisoned creature has disadvantage on attack rolls and ability checks.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Prone",
+        "Description": "A prone creature can only crawl unless it stands up. It has disadvantage on attack rolls. Attack rolls against the creature have advantage if the attacker is within 5 feet; otherwise, the attack roll has disadvantage.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Restrained",
+        "Description": "A restrained creature's speed becomes 0, and it can't benefit from any bonuses to its speed. Attack rolls against the creature have advantage, and its attack rolls have disadvantage. It has disadvantage on Dexterity saving throws.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Stunned",
+        "Description": "A stunned creature is incapacitated, can't move, and can speak only falteringly. It automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    },
+    {
+        "Name": "Unconscious",
+        "Description": "An unconscious creature is incapacitated, can't move or speak, and is unaware of its surroundings. It automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage, and any hits are critical hits if the attacker is within 5 feet.",
+        "Link": "https://roll20.net/compendium/dnd5e/Conditions#content"
+    }
+]
