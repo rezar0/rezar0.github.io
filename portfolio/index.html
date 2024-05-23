@@ -5,107 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/Flip.min.js"></script>
+    <script>
+        gsap.registerPlugin(Flip);
+    </script>
     <link rel="icon" type="image/png" href="/images/titleImage.png"/>
-    <title>Zak's portfolio</title>
+    <title>Portfolio</title>
 </head>
 <body>
-    <div class="menu-banner">
+    <header class="menu-banner">
         <div class="menu-0"><a href="/" class="menu-link">Zak Killermann</a></div>
-        <div class="menu-items">
-            <div class="menu-1"><a href="/references" class="menu-link">References</a></div>
-            <div class="menu-2"><a href="/portfolio" class="menu-link">Portfolio</a></div>
-            <div class="menu-3"><a href="https://www.linkedin.com/in/zak-killermann/" target="_blank" class="menu-link">LinkedIn</a></div>
-            <div class="menu-4"><a href="/images/ZakKillermannResume.pdf" class="menu-link" target="_blank">Resume</a></div>
-            <div class="menu-5"><a href="https://linktr.ee/killermann" class="menu-link">Contact me</a></div>
+        <nav class="menu-items" id="menu-items" aria-expanded="false">
+            <a href="/references" class="menu-link">References</a>
+            <!-- <a href="/portfolio" class="menu-link">Portfolio</a> -->
+            <a href="https://www.linkedin.com/in/zak-killermann/" target="_blank" class="menu-link">LinkedIn</a>
+            <a href="/images/ZakKillermannResume.pdf" class="menu-link" target="_blank">Resume</a>
+            <a href="https://linktr.ee/killermann" class="menu-link">Contact me</a>
+        </nav>
+        <button class="hamburger-menu nav-toggle" aria-controls="menu-items" aria-expanded="false" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+    <div class="main-container-portfolio">
+
+        <div class="button-container">
+            <button class="portfolio-button" id="cat-seo" onclick="filterContent('cat-seo')">SEO</button>
+            <button class="portfolio-button" id="cat-finder" onclick="filterContent('cat-finder')">Finder.com</button>
+            <button class="portfolio-button" id="cat-writing" onclick="filterContent('cat-writing')">Writing</button>
+            <button class="portfolio-button" id="cat-frontend" onclick="filterContent('cat-frontend')">Frontend</button>
+            <button class="portfolio-button" id="cat-backend" onclick="filterContent('cat-backend')">Backend</button>
+            <button class="portfolio-button" id="cat-35in35" onclick="filterContent('cat-35in35')">35in35</button>
         </div>
-        <div class="hamburger-menu">
-            <a class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-          </a>
-        </div>
-    </div>
-    <div class="portfolio-container">
-        <!-- Tab links -->
-        <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'cryptoHTB')" id="defaultOpen">'How to buy' crypto series</button>
-            <button class="tablinks" onclick="openTab(event, 'Tab 2 holder')">Paris</button>
-            <button class="tablinks" onclick="openTab(event, 'Tab 3 holder')">Tokyo</button>
-        </div>
-        
-        <!-- Tab content -->
-        <div id="cryptoHTB" class="tabcontent">
-            <h1>'How to buy' crypto series</h1>
-            <img src="images/htbDoge.png" alt="How to buy Dogecoin example" class="portfolioScreenshot">
-            <h2>Overview</h2>
-            <p>SEO-focused 'how to buy' series featuring the top 1,000 coins in the crypto market rolled out to more than 20 markets infusing EEATs driven content with programmatically data-driven content.</p>
-            <hr/>
-            <div class="profileProblem">
-                <h2>Problem</h2>
-                <div class="side-by-side-2">
-                    <div class="side-by-side-big">
-                        <p>
-                            In the dynamic and ever-evolving crypto market there were several SEO and technical hurdles that needed to be conquered to launch a successful series. These challenges were not only preventing Finder from presenting accurate, useful information to the reader, they were also preventing the scaling of the 'how to buy' series both in number of coins supported and geographies the content was published in:
-                            
-                            <ul>
-                                <li><b>Rapidly Changing Keywords</b>: The crypto market was characterized by rapidly evolving trends and terminologies. Keeping up with the most relevant and high-traffic keywords required constant vigilance and adaptability in SEO strategies.</li>
-                            
-                                <li><b>High Competition for Visibility</b>: With numerous platforms, blogs, and forums dedicated to cryptocurrency, the competition for top rankings in search engine results was fierce. Standing out required not just quality content but also innovative SEO techniques.</li>
-                            
-                                <li><b>Regulatory Uncertainty</b>: Just as the regulatory landscape for cryptocurrencies varied significantly across different countries, so did the rules around advertising and SEO for crypto-related content. This uncertainty often led to challenges in content strategy and distribution.</li>
-                            
-                                <li><b>Complexity and Jargon</b>: The technical nature of blockchain and cryptocurrencies could make content less accessible, affecting its SEO potential. Simplifying complex concepts without losing their accuracy was a key challenge for content creators.</li>
-                            
-                                <li><b>Misinformation and Trust Issues</b>: The prevalence of misinformation in the crypto space made it difficult for genuine content to shine through. Building a reputation as a trustworthy source was essential but challenging, impacting the effectiveness of SEO efforts.</li>
-                            </ul>
-                            Addressing these SEO-specific challenges required a nuanced understanding of both the crypto market and the ever-changing landscape of search engine algorithms. We had to be agile, constantly learning and adapting our strategies to ensure visibility, engagement, and trust in this competitive and complex sector.
-                        </p>
-                    </div>
-                    <div class="image-wrap side-by-side-small">
-                            <img src="images/dogecoinOld.png" class="side-by-side-image"/>
-                    </div>
+        <div class="content-container" id="main-container">
+            <div class="content-item cat-seo">
+                <h2>On-page SEO</h2>
+                <p>I've worked extensively with schemas, I've written thousands of highly performing title tags and I know my way around a meta description. I seek out key internal links, I optimize content and I love reworking headers to best help the reader.</p>
+                <div class="detail-content" style="display: none;">
+                    <p>Key projects and experiences for on-page SEO work</p>
+                    <ul>
+                        <li>Bullet point 1</li>
+                        <li>Bullet point 2</li>
+                        <li>Bullet point 3</li>
+                    </ul>
+                    <img src="path/to/image1.jpg" alt="Image 1">
                 </div>
             </div>
-            <hr/>
-            <div class="profileSolution">
-                <h2>Solution</h2>
-                <div class="side-by-side-2">
-                    <div class="side-by-side-small">
-                        <img src="images/cryptoMarketFluctuate.jpg" alt="Crypto markets example" class="side-by-side-image">
-                    </div>
-                    <div class="side-by-side-big">
-                        <p style="padding-left: 1rem">
-                            Our solution was threefold:
-                            
-                            <ul>
-                                <li>Rapidly Changing Keywords: The crypto market was characterized by rapidly evolving trends and terminologies. Keeping up with the most relevant and high-traffic keywords required constant vigilance and adaptability in SEO strategies.</li>
-                            
-                            <li>High Competition for Visibility: With numerous platforms, blogs, and forums dedicated to cryptocurrency, the competition for top rankings in search engine results was fierce. Standing out required not just quality content but also innovative SEO techniques.</li>
-                            
-                            <li>Regulatory Uncertainty: Just as the regulatory landscape for cryptocurrencies varied significantly across different countries, so did the rules around advertising and SEO for crypto-related content. This uncertainty often led to challenges in content strategy and distribution.</li>
-                            
-                            <li>Complexity and Jargon: The technical nature of blockchain and cryptocurrencies could make content less accessible, affecting its SEO potential. Simplifying complex concepts without losing their accuracy was a key challenge for content creators.</li>
-                            
-                            <li>Misinformation and Trust Issues: The prevalence of misinformation in the crypto space made it difficult for genuine content to shine through. Building a reputation as a trustworthy source was essential but challenging, impacting the effectiveness of SEO efforts.</li>
-                            
-                            <li>Addressing these SEO-specific challenges required a nuanced understanding of both the crypto market and the ever-changing landscape of search engine algorithms. Marketers and content creators had to be agile, constantly learning and adapting their strategies to ensure visibility, engagement, and trust in this competitive and complex sector.</li>
-                        </p>
-                    </div>
+            <div class="content-item category3">
+                <h2>Header 2</h2>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="detail-content" style="display: none;">
+                    <p>Detailed information for Header 2.</p>
+                    <ul>
+                        <li>Bullet point 1</li>
+                        <li>Bullet point 2</li>
+                        <li>Bullet point 3</li>
+                    </ul>
+                    <img src="path/to/image1.jpg" alt="Image 1">
                 </div>
             </div>
-        </div>
-        
-        <div id="Tab 2 holder" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p>
-        </div>w
-        
-        <div id="Tab 3 holder" class="tabcontent">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the capital of Japan.</p>
+            <div class="content-item category3">
+                <h2>Header 3</h2>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            </div>
+            <div class="content-item category1">
+                <h2>Header 4</h2>
+                <p>Nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+            </div>
+            <div class="content-item category1">
+                <h2>Header 5</h2>
+                <p>In reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
+            </div>
+            <div class="content-item category3">
+                <h2>Header 6</h2>
+                <p>Nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+            </div>
+            <div class="content-item category1">
+                <h2>Header 7</h2>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="content-item category2">
+                <h2>Header 8</h2>
+                <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio.</p>
+            </div>
+            <div class="content-item category2">
+                <h2>Header 9</h2>
+                <p>Ut aliquam sollicitudin leo. Cras iaculis ultricies nulla.</p>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

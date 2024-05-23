@@ -1,24 +1,126 @@
-document.getElementById("defaultOpen").click();
+gsap.registerPlugin(Flip);
+
+var catHolder;
+function filterContent(category) {
+    //resetContent();
+    
+    setTimeout(() => {
+        const container = document.querySelector('.content-container');
+        const items = Array.from(document.querySelectorAll('.content-item'));
+
+        if (catHolder && catHolder != category) {
+            document.getElementById(catHolder).classList.remove("special")
+            document.getElementById(category).classList.add("special")
+        } else {
+            document.getElementById(category).classList.add("special")
+        }
+        catHolder = category;
+        
+        
+        // Capture the initial state
+        const state = Flip.getState(items);
+
+        // Reorder the items based on the selected category
+        const sortedItems = items.sort((a, b) => {
+            const aInCategory = a.classList.contains(category);
+            const bInCategory = b.classList.contains(category);
+            return bInCategory - aInCategory; // Move items in the category to the front
+        });
+
+        // Append sorted items back to the container
+        sortedItems.forEach(item => {
+            container.appendChild(item);
+        });
+
+        // Animate to the new state
+        Flip.from(state, {
+            duration: 0.5,
+            ease: 'easeOutElastic',
+            absolute: true,
+            stagger: 0.1,
+            scale: false
+        });
+
+        items.forEach(item => {
+            if (item.classList.contains(category)) {
+                item.classList.add("special")
+                item.classList.remove("not-special")
+            } else {
+                item.classList.remove("special")
+                item.classList.add("not-special")
+            }
+        });
+    }, 750);
+}
+
+function applySpecial(item) {
+    item.classList.add("special");
+}
+
+function resetContent() {
+    const items = Array.from(document.querySelectorAll('.content-item'));
+
+    // Capture the initial state
+    const state = Flip.getState(items);
+
+    // Reset the items order to the initial order
+    items.forEach(item => {
+        item.style.display = 'flex';
+    });
+
+    // Animate to the new state
+    Flip.from(state, {
+        duration: 0.5,
+        ease: 'power1.inOut',
+        absolute: true,
+        stagger: 0.1,
+        scale: true
+    });
+}
+
+// Event listener for category buttons
+document.querySelectorAll('.category-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        filterContent(category);
+    });
+});
 
 
-function openTab(evt, tabName) {
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.content-item');
+    
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            showDetailedCard(item);
+        });
+    });
+});
 
-    // Declare all variables
-    var i, tabcontent, tablinks;
+function showDetailedCard(item) {
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    overlay.addEventListener('click', closeDetailedCard);
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+    const card = document.createElement('div');
+    card.className = 'detailed-card';
+    
+    // Get the detailed content from the hidden div
+    const detailContent = item.querySelector('.detail-content').innerHTML;
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    card.innerHTML = `
+        <span class="detailed-card-close" onclick="closeDetailedCard()">&times;</span>
+        <h2>${item.querySelector('h2').innerText}</h2>
+        ${detailContent}
+    `;
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    document.body.appendChild(overlay);
+    document.body.appendChild(card);
+}
+
+function closeDetailedCard() {
+    const card = document.querySelector('.detailed-card');
+    const overlay = document.querySelector('.overlay');
+    if (card) card.remove();
+    if (overlay) overlay.remove();
 }

@@ -84,15 +84,17 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    padding: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 5;
+    background-color: #484a47;
+    height: 40px;
 }
 
 .menu-items {
     display: flex;
     gap: 20px;
     padding-right: 20px;
+    background-color: #484a47;
 }
 
 .nav-toggle {
@@ -107,7 +109,7 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: #484a47;
         border-top: 1px solid #ccc;
     }
 
@@ -128,7 +130,7 @@ body {
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        background-color: #333;
+        background-color: #b892ff;
         transition: all 0.3s ease-in-out;
     }
 
@@ -147,7 +149,8 @@ body {
 
 .menu-link {
     text-decoration: none;
-    color: black;
+    color: #b892ff;
     font-weight: bold;
     padding: 10px;
+    background-color: #484a47;
 }
