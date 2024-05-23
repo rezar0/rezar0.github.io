@@ -8,35 +8,33 @@
     <title>Hi, I'm Zak</title>
 </head>
 <body>
-    <div class="menu-banner">
+    <header class="menu-banner">
         <div class="menu-0"><a href="/" class="menu-link">Zak Killermann</a></div>
-        <div class="menu-items">
-            <div class="menu-1"><a href="/references" class="menu-link">References</a></div>
-            <!--<div class="menu-2"><a href="/portfolio" 
-            </a> class="menu-link">Portfolio</a></div>
-            -->
-            <div class="menu-3"><a href="https://www.linkedin.com/in/zak-killermann/" target="_blank" class="menu-link">LinkedIn</a></div>
-            <div class="menu-4"><a href="/images/ZakKillermannResume.pdf" class="menu-link" target="_blank">Resume</a></div>
-            <div class="menu-5"><a href="https://linktr.ee/killermann" class="menu-link">Contact me</a></div>
-        </div>
-        <div class="hamburger-menu">
-            <a class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-          </a>
-        </div>
-    </div>
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="images/headshot.jpg" alt="Zak's Headshot" class="profile-headshot">
-            <h2>Hi, I'm Zak</h2>
-        </div>
-        <p id="typing-effect"></p>
-        <div class="profile-menu">
-            <a href="/references">Read some references</a>
+        <nav class="menu-items" id="menu-items" aria-expanded="false">
+            <a href="/references" class="menu-link">References</a>
             <!--<a href="/portfolio" class="menu-link">Portfolio</a> -->
+            <a href="https://www.linkedin.com/in/zak-killermann/" target="_blank" class="menu-link">LinkedIn</a>
+            <a href="/images/ZakKillermannResume.pdf" class="menu-link" target="_blank">Resume</a>
             <a href="https://linktr.ee/killermann" class="menu-link">Contact me</a>
+        </nav>
+        <button class="hamburger-menu nav-toggle" aria-controls="menu-items" aria-expanded="false" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+    <div class="main-container">
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="images/headshot.jpg" alt="Zak's Headshot" class="profile-headshot">
+                <h2>Hi, I'm Zak</h2>
+            </div>
+            <p id="typing-effect"></p>
+            <div class="profile-menu">
+                <a href="/references">Read some references</a>
+                <!--<a href="/portfolio" class="menu-link">Portfolio</a> -->
+                <a href="https://linktr.ee/killermann" class="menu-link">Contact me</a>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

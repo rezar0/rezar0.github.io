@@ -7,7 +7,7 @@
 }
 
 @keyframes blinkCursor {
-  from, to { border-color: transparent }
+  from, to { border-color: transparent; }
   50% { border-color: black; }
 }
 
@@ -15,12 +15,18 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     background-color: #E7DECD;
+    background-image: url('/images/backgroundImage.jpg');
+    background-size: 300px 300px;
+}
+
+.main-container {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .profile-container {
@@ -70,107 +76,78 @@ body {
 }
 
 .menu-banner {
-    margin-left: 10%;
-    position: fixed;
-    margin-top: 1rem;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     width: 100%;
-    text-wrap: nowrap;
-}
-
-.menu-2, .menu-3, .menu-4, .menu-5 {
-    margin-left: 20px;
-}
-
-.nav-toggle {
-    display: none; /* Hidden by default */
-    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 5;
 }
 
 .menu-items {
-    margin-left: auto;
-    margin-right: 20%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.nav-toggle {
+    display: none;
 }
 
 @media (max-width: 768px) {
-    .hamburger-menu {
-        margin-right: 20%;
-        margin-left: auto;
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger icon on small screens */
-    }
-
     .menu-items {
-        display: none; /* Hide menu items on small screens */
-        flex-direction: column; /* Stack them vertically when displayed */
+        display: none;
+        flex-direction: column;
         position: absolute;
-        width: 100%;
+        top: 100%;
         left: 0;
-        top: 30px; /* Adjust based on your header's height */
-        z-index: 1;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
     }
 
-    .menu-items div {
-        margin-left: 10%; /* Adjust menu items alignment if necessary */
-        padding: 10px 0; /* Add some padding for tap targets */
-        border-bottom: 1px solid #ccc; /* Optional: add a separator between items */
+    .menu-items[aria-expanded="true"] {
+        display: flex;
     }
-
-    .menu-1 {
-        margin-left: 0; /* Reset margin for mobile */
-    }
-
 
     .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 22px;
-        width: 22px;
-    }
-    
-    .nav-toggle .bar {
-        height: 3px;
-        width: 100%;
-        background-color: black;
-        transition: all 100ms ease-in-out;
-    }
-    
-    .nav-toggle:hover {
+        display: block;
+        background: none;
+        border: none;
         cursor: pointer;
+        padding-right: 25px;
     }
-    
-    .x:nth-of-type(1) {
-        transition: all 100ms ease-in-out;
-        transform: rotate(45deg);
-        transform-origin: top left;
-        width: 28px;
+
+    .nav-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #333;
+        transition: all 0.3s ease-in-out;
     }
-    
-    .x:nth-of-type(2) {
-        transition: all 100ms ease-in-out;
-        transform-origin: center;
-        width: 0;
+
+    .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
     }
-    
-    .x:nth-of-type(3) {
-        transition: all 100ms ease-in-out;
-        transform: rotate(-45deg);
-        transform-origin: bottom left;
-        width: 28px;
+
+    .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
 
 .menu-link {
     text-decoration: none;
     color: black;
+    font-weight: bold;
+    padding: 10px;
 }

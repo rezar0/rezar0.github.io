@@ -64,20 +64,28 @@ document.addEventListener('DOMContentLoaded', () => {
     
             const item = document.createElement('div');
             item.id = `radialId${start + index}`; // Adjust ID to be unique across pages
-            item.textContent = action.Name;
+            if (action.Name.includes('/')) {
+                item.textContent = action.Name.replace('/', ' or ');
+            } else {
+                item.textContent = action.Name;
+            }
             item.style.backgroundColor = '#4CAF50';
             item.style.transform = `translate(${x}px, ${y}px) scale(2.2)`;
     
             // Calculate font size based on text length, setting it in pixels
             const textLength = item.textContent.length;
-            console.log(textLength)
+            const textContent = item.textContent;
             const baseSize = 14; // Base size in pixels
             const reductionFactor = 0.6; // Reduction factor per character
             const minSize = 7; // Minimum font size in pixels
             let fontSize = Math.max(minSize, baseSize - reductionFactor * textLength);
+            console.log(item.textContent)
+           if (!textContent.includes(' ') && item.textContent.length > 8) {
+                fontSize -= 1;
+            }
             item.style.fontSize = `${fontSize}px`;
             item.style.textAlign = `center`;
-            item.style.overflowWrap = `anywhere`;
+            item.style.overflowWrap = `break-word`;
             item.style.padding = `1px`;
             item.className = `highlight-on-hover`;
             item.addEventListener('mouseup', (e) => handleSelect(e, action)); // Pass the action object to the handler

@@ -5,47 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/style.css">
+
     <link rel="icon" type="image/png" href="/images/titleImage.png"/>
     <title>References</title>
 </head>
 <body>
+    <header class="menu-banner">
+        <div class="menu-0"><a href="/" class="menu-link">Zak Killermann</a></div>
+        <nav class="menu-items" id="menu-items" aria-expanded="false">
+            <a href="/references" class="menu-link">References</a>
+            <!-- <a href="/portfolio" class="menu-link">Portfolio</a> -->
+            <a href="https://www.linkedin.com/in/zak-killermann/" target="_blank" class="menu-link">LinkedIn</a>
+            <a href="/images/ZakKillermannResume.pdf" class="menu-link" target="_blank">Resume</a>
+            <a href="https://linktr.ee/killermann" class="menu-link">Contact me</a>
+        </nav>
+        <button class="hamburger-menu nav-toggle" aria-controls="menu-items" aria-expanded="false" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+    <div class="main-container-references">
+    <div class="references-summary">
+        <div class="rotating-text">
+            <p style="text-align: left; font-style: italic;">Past colleagues have said that...</p>
+            <div class="text" id="text-container">
+            <!-- Sentences will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </div>
     <div>
-        <div class="menu-banner">
-            <div class="menu-0"><a href="/" class="menu-link">Zak Killermann</a></div>
-            <div class="menu-items">
-                <div class="menu-1"><a href="/references" class="menu-link">References</a></div>
-                <!--
-                    <div class="menu-2"><a href="/portfolio" class="menu-link">Portfolio</a></div>
-                -->
-                <div class="menu-3"><a href="https://www.linkedin.com/in/zak-killermann/" target="_blank" class="menu-link">LinkedIn</a></div>
-                <div class="menu-4"><a href="/images/ZakKillermannResume.pdf" class="menu-link" target="_blank">Resume</a></div>
-                <div class="menu-5"><a href="https://linktr.ee/killermann" class="menu-link">Contact me</a></div>
-            </div>
-            <div class="hamburger-menu">
-                <a class="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-            </a>
-            </div>
-        </div>
-        <div class="profile-container">
-            <div class="rotating-text">
-                <p style="text-align: left; font-style: italic;">Past colleagues have said that...</p>
-                <div class="text" id="text-container">
-                <!-- Sentences will be loaded here via JavaScript -->
+        <div class="references-container">
+            <div class="ref-box-show">
+                <p class="ref-show-box-text">Zak is an incredible executer. As his manager, I could always rely on him to handle projects end to end. From stakeholder management to defining technical solutions (and often implementing them in code himself), to working with various teams to roll them out, Zak can do it all. One such notable callout was when we were consolidating our country websites. We were required to present users from different geographic locations alternate product offerings. Not only did he define the approach, he built it and, working with the wider team, implemented it out across thousands of pages. Zak is absolutely the person you can provide a problem to, and he will deliver a well thought-out solution, on-time and without the need for oversight.</p>
+                <div class="ref-show-box-author">
+                    <img src="/references/images/adrian.jpg" alt="Adrian Tomkins" style="width:100px; height:100px; border-radius:50%; margin-right: 15px;">
+                    <h4>Adrian Tomkins<br/><a href="https://www.linkedin.com/in/adriantomkins/" target="_blank">Group Product Manager</a><br/>Finder.com</h4>
                 </div>
             </div>
-            <div class="slideshow-container">
-                <img src="/references/images/swipe.png" class="swipeImage" id="swipeImage">
-                <div class="testimonials-wrapper" id="testimonialsWrapper">
-                    
-                    <!-- Testimonials will be dynamically inserted here -->
+            <div class="ref-box-noshow"></div>
+        </div>
+    
+        <div class="references-container">
+            <div class="ref-box-noshow"></div>
+                <div class="ref-box-show">
+                    <p class="ref-show-box-text">Zak is a rare breed of digital shapeshifter. You need only look at his remarkable trajectory within the business to see what I mean — from staff writer to full-stack publisher in a few short years. <br /><br />When I first onboarded Zak, I remember being struck by two things: an inquisitiveness (how does that work? Can we do it more efficiently? How can we measure success?) far beyond your average editorial recruit, and a knack for just "getting it" every time. His skill in breaking down complex financial topics certainly didn't go unnoticed either.<br /><br />Perhaps these were early hints of what an incredible path Zak would go on to forge. Over 4 years and dozens of projects, Zak became a go-to interface between content, product and engineering teams - often wearing several of these hats himself. Without Zak's unique convergence of technical publishing and communication skills, our lean team wouldn't have achieved such success on many of our colossal, cross-market projects (comprising tens of thousands of pages!). Scaling is Zak's superpower. When you think it can't be done, he finds a way - and then finds an even better one.<br /><br />To top it off, Zak is a total pleasure to collaborate with. He approaches every challenge with level-headedness, insight and empathy, never failing to ask "how can I help?"<br /><br />I wouldn't think twice about hiring Zak again - any company would be lucky to have him.</p>
+                    <div class="ref-show-box-author">
+                        <img src="/references/images/molly.jpg" alt="Adrian Tomkins" style="width:100px; height:100px; border-radius:50%; margin-right: 15px;">
+                        <h4>Molly Wiltshire-Bridle<br/><a href="https://www.linkedin.com/in/molly-wiltshire-bridle/" target="_blank">Global Growth Manager - Financial Niches</a><br/>Finder.com</h4></div>
                 </div>
-                <a class="prev">❮</a>
-                <a class="next">❯</a>
             </div>
         </div>
+
+        <div class="references-container">
+            <div class="ref-box-show">
+                <p class="ref-show-box-text">Zak Killermann is the bridge between Product &amp; Marketing that every company dreams of. His deep understanding of both content and product development made him uniquely capable of identifying areas for both growth and improvement. Couple this understanding with Zak's bias toward action, and you're dealing with a force to be reckoned with.<br /><br />Any organization seeking to accelerate their growth efforts would be privileged to count Zak among their ranks.</p>
+                <div class="ref-show-box-author">
+                    <img src="/references/images/zak.jpg" alt="Zak Ali" style="width:100px; height:100px; border-radius:50%; margin-right: 15px;">
+                    <h4>Zak Ali<br/><a href="https://www.linkedin.com/in/zak-ali-ab267777/" target="_blank">Head of Growth - US</a><br/>Finder.com</h4>
+                 </div>
+            </div>
+            <div class="ref-box-noshow"></div>
+        </div>
+
+        <div class="references-container">
+            <div class="ref-box-noshow"></div>
+            <div class="ref-box-show">
+                <p class="ref-show-box-text">Zak has demonstrated an exceptional ability to manage Finder's global niches seamlessly. His keen insights and strategic approach have been instrumental in keeping our projects flowing smoothly across various international domains.<br /><br />I've witnessed Zak's remarkable growth during his transitions at Finder, particularly from his role as our Money Transfer writer to his current position, where he tackles and solves technical global problems that impact tens of thousands of pages. His dedication to continuously expanding his skillset and taking on new challenges has greatly contributed to the success of our projects.</p>
+                <div class="ref-show-box-author">
+                    <img src="/references/images/shirley.jpg" alt="Shirley Liu" style="width:100px; height:100px; border-radius:50%; margin-right: 15px;">
+                    <h4>Shirley Liu<br/><a href="https://www.linkedin.com/in/shirleyliu5/" target="_blank">Chief of Staff</a><br/>Finder.com</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="linkedin-container">
+            <div class="linkedin-box-show">
+                <p class="linkedin-show-box-text">Read more on LinkedIn</p>
+                <span>
+                    <img src="/references/images/arrow.gif" style="width: 65px">
+                
+                    <a href="https://www.linkedin.com/in/zak-killermann/details/recommendations/" target="_blank"><img src="/references/images/linkedin.png" alt="LinkedIn Logo" style="width:50px; height:50px; padding-bottom: 5px;"></a>
+                </span>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+
     </div>
     <script src="script.js"></script>
     <script src="/script.js"></script>

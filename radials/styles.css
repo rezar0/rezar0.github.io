@@ -79,7 +79,7 @@ body, html {
 
 .action-details {
     position: fixed;
-    bottom: 35%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     width: 80%; /* Responsive width */
@@ -90,6 +90,8 @@ body, html {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     z-index: 10;
     display: none; /* Hidden by default */
+    overflow-y: auto;
+    max-height: 60%;
 }
 
 .navigation-controls {

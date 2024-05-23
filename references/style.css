@@ -164,3 +164,71 @@ body, html {
 
 
 
+.references-summary, .linkedin-container {
+    max-width: 800px;
+    width: 90%;
+    background-color: #e7decd;
+    /* border-radius: 10px; */
+    border-color: #484a47;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.linkedin-container {
+    margin-top: 10px;
+}
+
+.linkedin-box-show {
+    display: flex;
+    justify-content: center;
+}
+
+.linkedin-show-box-text {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 3px;
+    padding-left: 10px;
+}
+
+.references-container {
+    display: flex;
+    max-width: 800px;
+}
+
+
+.ref-box-show {
+    width: 80%;
+    background-color: #e7decd;
+    /* border-radius: 10px; */
+    border-color: #484a47;
+    border-style: solid;
+    border-width: 10px;
+    margin-top: 1rem;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ref-show-box-text {
+    text-align: justify;
+    line-height:1rem;
+}
+
+.ref-show-box-author {
+    display:flex; 
+    text-align: left;
+}
+
+.ref-box-noshow {
+    width: 20%;
+}
+
+
+.main-container-references {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+    margin-top: 100px;
+}
