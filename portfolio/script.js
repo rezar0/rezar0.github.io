@@ -109,7 +109,7 @@ function showDetailedCard(item) {
     const detailContent = item.querySelector('.detail-content').innerHTML;
 
     card.innerHTML = `
-        <span class="detailed-card-close" onclick="closeDetailedCard()">&times;</span>
+        <span class="detailed-card-close" onclick="closeDetailedCard()">X</span>
         <h2>${item.querySelector('h2').innerText}</h2>
         ${detailContent}
     `;
