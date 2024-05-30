@@ -91,7 +91,7 @@ h2 {
 
 /* Special shimmery border */
 .special {
-    --borderWidth: 3px;
+    --borderWidth: 4px;
   /*background: #1D1F20;*/
   position: relative;
   border-radius: var(--borderWidth);
@@ -129,6 +129,7 @@ h2 {
     border: none;
     box-shadow: none;
     animation: none;
+    background: lightgrey;
 }
 
 /* Styles for the detailed card */
@@ -180,4 +181,78 @@ h2 {
         padding-left: 10px;
         padding-right: 10px;
     }
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  border-radius: 25px;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+
+.skill-tag-js {
+  background-color: #f7df1e;
+  color: #000000;
+}
+
+.skill-tag-ahrefs {
+  background-color: #054ada;
+  color: #ff8800;
+}
+
+.skill-tag-screamingfrog {
+  background-color: #72b62b;
+  color: #ffffff
+}
+
+.skill-tag-semrush {
+  background-color: #ff622d;
+  color: #000000;
+}
+
+.skill-tag-yoast {
+  background-color: #a4286a;
+  color: #ffffff
+}
+
+.skill-tag-moz {
+  background-color: #24abe2;
+  color: #ffffff;
+}
+
+.skill-tag-googleanalytics {
+  background-color: #e37400;
+  color: #ffffff;
+}
+
+.skill-tag-googletag {
+  background-color: #4285f4;
+  color: #ffffff
+}
+
+.skill-tag-wordpress {
+  background-color: #32373c;
+  color: #ffffff;
+}
+
+.skill-tag-html {
+  background-color: #e44d26;
+  color: #ffffff;
+}
+
+.skill-tag-css {
+  background-color: #264de4;
+  color: #ffffff
+}
+
+.skill-tag-twig {
+  background-color: #bccf27;
+  color: #ffffff;
 }
