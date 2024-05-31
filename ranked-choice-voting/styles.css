@@ -1,0 +1,55 @@
+/* styles.css */
+.voting-grid {
+    padding-right: 0px;    
+}
+.voting-grid div {
+    margin-bottom: 10px;
+}
+.voting-grid button {
+    margin-right: 5px;
+    font-size: 16px;
+}
+.used {
+    background-color: #ccc;
+}
+button:disabled {
+    color: #666;
+}
+
+button {
+    margin-left: 12px;
+    transform: scale(1.2);
+}
+
+.candidate-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    min-width: 350px;
+    align-items: center;
+    padding: 5px;
+}
+
+.candidate-name {
+    min-width: 75px;
+}
+
+.candidate-entry {
+    padding: 15px;
+}
+
+.voters-entry {
+    padding: 15px;
+}
+
+.done-voting {
+    margin-bottom: 10px;
+    margin-left: 50px;
+    transform: scale(1.5);
+}
+
+.reset-vote {
+    margin-top: 10px;
+    margin-left: 50px;
+    transform: scale(1.5);
+}

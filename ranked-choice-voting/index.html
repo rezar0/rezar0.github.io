@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranked Choice Voting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ranked Choice Voting</h1>
+    <div id="setup">
+        <div class="voters-entry"><label>Number of Voters: <input type="number" id="numVoters"></label></div>
+        <div class="candidate-entry"><label>List Candidates: <input type="text" id="candidates"></label></div>
+        <button onclick="setupVoting()">Setup Voting</button>
+    </div>
+
+    <div id="voting" style="display: none;">
+        <h2>Current Voter: <span id="voterIndex">1</span></h2>
+        <div id="votingGrid" class="voting-grid">
+            <!-- Dynamic voting grid will be inserted here -->
+        </div>
+        <div class="voting-buttons">
+            <button onclick="collectVotes()" class="done-voting">Done Voting</button>
+            <button onclick="resetCurrentVoter()" class="reset-vote">Reset Votes</button>
+        </div>
+
+    </div>
+
+    <h2>Result... <span id="result"></span></h2>
+
+
+<button onclick="toggleResults()">Show/Hide Detailed Results</button>
+<select id="detailedResults" style="display: none;">
+    <!-- Results options will be populated here -->
+</select>
+
+    <script src="script.js"></script>
+</body>
+</html>
