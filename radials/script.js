@@ -14,7 +14,7 @@ function fetchJson(jsonData, jsonReference) {
 };
 
 fetchJson(spellData, 'spellData.json');
-fetchJson(actions, 'spellData.json');
+fetchJson(actions, 'actions.json');
 
 
 

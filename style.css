@@ -154,3 +154,7 @@ body {
     padding: 10px;
     background-color: #484a47;
 }
+
+.menu-link-contact {
+    text-decoration: none;
+}

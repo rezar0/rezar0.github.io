@@ -50,7 +50,7 @@ function filterContent(category) {
                 item.classList.add("not-special")
             }
         });
-    }, 750);
+    }, 250);
 }
 
 function applySpecial(item) {
